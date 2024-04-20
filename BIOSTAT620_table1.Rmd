@@ -1,0 +1,306 @@
+---
+title: "BIOSTAT620_table1"
+author: "Ruoer Bei"
+date: "2024-04-19"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r}
+library(dplyr)
+library(tableone)
+library(knitr)
+library(tableone)
+library(readxl)
+```
+
+```{r}
+#hafshlsgjg
+#hdlfsjg;
+#ldsjfl
+```
+
+```{r}
+
+
+data <- read_excel("/Users/ruoerbei/Documents/BIOSTAT620/BIOSTAT620_project2/completed_data3.xlsx")
+
+data$Treatment <- as.factor(data$Treatment)
+
+vars <- c("Total.ST.min", "Social.ST.min", "Pickups", "apps", "devices", "procrastination_score", "workmate", "X2_academic_talk", "non_academic", "pets", "age", "cousre_credit", "siblings" )
+
+strata <- "Treatment"
+
+table1 <- CreateTableOne(vars = vars, strata = strata, data = data, factorVars = c("Treatment"))
+
+print(table1)
+
+
+
+```
+
++----------------------------------+-----------------+-----------------+--------------+
+|                                  | A               | B               | p_value      |
++==================================+=================+=================+==============+
+| n                                | ```             | ```             |              |
+|                                  | 928             | 1225            |              |
+|                                  | ```             | ```             |              |
++----------------------------------+-----------------+-----------------+--------------+
+| ```                              | ```             | ```             | ```          |
+| Total.ST.min (mean (SD))         | 407.17 (210.25) | 394.14 (182.51) | 0.125        |
+| ```                              | ```             | ```             | ```          |
++----------------------------------+-----------------+-----------------+--------------+
+| ```                              | ```             | ```             | ```          |
+| Social.ST.min (mean (SD))        | 191.78 (152.53) | 205.22 (123.07) | 0.024        |
+| ```                              | ```             | ```             | ```          |
++----------------------------------+-----------------+-----------------+--------------+
+| ```                              | ```             | ```             | ```          |
+| Pickups (mean (SD))              | 97.19 (52.17)   | 99.53 (40.65)   | 0.243        |
+| ```                              | ```             | ```             | ```          |
++----------------------------------+-----------------+-----------------+--------------+
+| ```                              | ```             | ```             | ```          |
+| Apps (mean (SD))                 | 3.95 (2.05)     | 4.14 (1.64)     | 0.015        |
+| ```                              | ```             | ```             | ```          |
++----------------------------------+-----------------+-----------------+--------------+
+| ```                              | ```             | ```             | ```          |
+| Devices (mean (SD))              | 2.76 (1.10)     | 2.92 (1.04)     | 0.001        |
+| ```                              | ```             | ```             | ```          |
++----------------------------------+-----------------+-----------------+--------------+
+| ```                              | ```             | ```             | ```          |
+| Procrastinationscore (mean (SD)) | 36.43 (8.19)    | 38.24 (11.61)   | <0.001       |
+| ```                              | ```             | ```             | ```          |
++----------------------------------+-----------------+-----------------+--------------+
+| ```                              | ```             | ```             | ```          |
+| Age (mean (SD))                  | 23.59 (2.30)    | 22.98 (0.99)    | <0.001       |
+| ```                              | ```             | ```             | ```          |
++----------------------------------+-----------------+-----------------+--------------+
+| ```                              | ```             | ```             | ```          |
+| Workmate (mean (SD))             | 0.93 (1.04)     | 0.95 (0.91)     | 0.686        |
+| ```                              | ```             | ```             | ```          |
++----------------------------------+-----------------+-----------------+--------------+
+| ```                              | ```             | ```             | ```          |
+| X2_academic_talk (mean (SD))     | 0.93 (0.95)     | 1.01 (0.87)     | 0.034        |
+| ```                              | ```             | ```             | ```          |
++----------------------------------+-----------------+-----------------+--------------+
+| ```                              | ```             | ```             | ```          |
+| Non_academic (mean (SD))         | 1.27 (1.42)     | 1.59 (2.09)     | <0.001       |
+| ```                              | ```             | ```             | ```          |
++----------------------------------+-----------------+-----------------+--------------+
+| ```                              | ```             | ```             | ```          |
+| Pets (mean (SD))                 | 0.08 (0.28)     | 0.05 (0.22)     | 0.002        |
+| ```                              | ```             | ```             | ```          |
++----------------------------------+-----------------+-----------------+--------------+
+| ```                              | ```             | ```             | ```          |
+| Cousre_credit (mean (SD))        | 12.92 (4.12)    | 13.59 (2.36)    | <0.001       |
+| ```                              | ```             | ```             | ```          |
++----------------------------------+-----------------+-----------------+--------------+
+| ```                              | ```             | ```             | ```          |
+| Siblings (mean (SD))             | 0.82 (1.92)     |  0.45 (0.88)    | <0.001       |
+| ```                              | ```             | ```             | ```          |
++----------------------------------+-----------------+-----------------+--------------+
+
+Table 1: Summary Table for Screentime and Baseline
+
++------------------------------------------+-----------------+------------------+--------------+
+|                                          | A               | B                | P value      |
++==========================================+=================+==================+==============+
+| n                                        | 11              | 17               |              |
++------------------------------------------+-----------------+------------------+--------------+
+| Total Screen Time (in Mins) (mean (SD))  |                 |                  |              |
++------------------------------------------+-----------------+------------------+--------------+
+| 2024-01-16 to 2024-03-27                 | 414.93 (204.67) | 397.041 (179.59) | ```          |
+|                                          |                 |                  | 0.044        |
+|                                          |                 |                  | ```          |
++------------------------------------------+-----------------+------------------+--------------+
+| 2024-03-28 to 2024-04-02                 | 309.51 (241.44) | 359.88 (204.84)  | 0.156        |
++------------------------------------------+-----------------+------------------+--------------+
+| Social Screen Time (in Mins) (mean (SD)) |                 |                  |              |
++------------------------------------------+-----------------+------------------+--------------+
+| 2024-01-16 to 2024-03-27                 | 196.13 (154.42) | 205.81 (122.95)  | 0.134        |
++------------------------------------------+-----------------+------------------+--------------+
+| 2024-03-28 to 2024-04-02                 | 135.89 (115.34) | 198.67 (120.80)  | \<0.001      |
++------------------------------------------+-----------------+------------------+--------------+
+| Pickups (mean (SD))                      |                 |                  |              |
++------------------------------------------+-----------------+------------------+--------------+
+| 2024-01-16 to 2024-03-27                 | 98.22 (51.45)   | 102.68 (40.28)   | 0.037        |
++------------------------------------------+-----------------+------------------+--------------+
+| 2024-03-28 to 2024-04-02                 | 86.61 (60.14)   | 66.61 (28.88)    | 0.011        |
++------------------------------------------+-----------------+------------------+--------------+
+| Number of Apps (mean (SD))               | 3.95 (2.05)     | 4.14 (1.64)      | 0.02         |
++------------------------------------------+-----------------+------------------+--------------+
+| Number of Devices (mean (SD))            | 2.76 (1.10)     | 2.92 (1.04)      | 1.00\*e\^-3  |
++------------------------------------------+-----------------+------------------+--------------+
+| Procrastination Score (mean (SD))        | 36.43 (8.19)    | 38.24 (11.61)    | \<0.001      |
++------------------------------------------+-----------------+------------------+--------------+
+| Age (mean (SD))                          | 23.59 (2.30)    | 22.98 (0.99)     | \<0.001      |
++------------------------------------------+-----------------+------------------+--------------+
+| Number of Workmate Before(mean (SD)      | 0.93 (1.04)     | 0.95 (0.91)      | 0.69         |
++------------------------------------------+-----------------+------------------+--------------+
+| Number of Academic Talks (mean (SD))     | 0.93 (0.95)     | 1.01 (0.87)      | 0.03         |
++------------------------------------------+-----------------+------------------+--------------+
+| Number of Non-academic Talks (mean (SD)) | 1.27 (1.42)     | 1.59 (2.09)      | \<0.001      |
++------------------------------------------+-----------------+------------------+--------------+
+| Number of Pets (mean (SD))               | 0.08 (0.28)     | 0.05 (0.22)      | 2.00\*e\^-3  |
++------------------------------------------+-----------------+------------------+--------------+
+| Course credits (mean (SD))               | 12.92 (4.12)    | 13.59 (2.36)     | \<0.001      |
++------------------------------------------+-----------------+------------------+--------------+
+| Siblings (mean (SD))                     | 0.82 (1.92)     | 0.45 (0.88)      | \<0.001      |
++------------------------------------------+-----------------+------------------+--------------+
+
+```{r}
+library(tableone)
+library(readxl)
+library(dplyr)
+
+
+data$Date <- as.Date(data$Date)  # Ensure 'Date' is in Date format
+period1 <- subset(data, Date >= as.Date("2024-01-16") & Date <= as.Date("2024-03-27"))
+period2 <- subset(data, Date >= as.Date("2024-03-28") & Date <= as.Date("2024-04-02"))
+
+calc_stats <- function(df, vars) {
+  lapply(vars, function(var) {
+    c(Mean = mean(df[[var]], na.rm = TRUE),
+      Variance = var(df[[var]], na.rm = TRUE),
+      SD = sd(df[[var]], na.rm = TRUE))
+  })
+}
+
+
+time_vars <- c("Total.ST.min", "Social.ST.min", "Pickups")
+stats_period1 <- calc_stats(period1, time_vars)
+stats_period2 <- calc_stats(period2, time_vars)
+
+
+other_vars <- c("apps", "devices", "procrastination_score", "workmate", "X2_academic_talk", "non_academic", "pets", "age", "cousre_credit", "siblings")
+table1 <- CreateTableOne(vars = other_vars, strata = "Treatment", data = data, factorVars = c("Treatment"))
+
+
+print(table1)
+
+
+print("Statistics from Jan 16th to March 27th:")
+print(stats_period1)
+
+print("Statistics from March 28th to April 2nd:")
+print(stats_period2)
+
+```
+
+```{r}
+
+library(readxl)
+library(dplyr)
+
+data <- read_excel("/Users/ruoerbei/Documents/BIOSTAT620/BIOSTAT620_project2/completed_data3.xlsx")
+
+data$Date <- as.Date(data$Date)
+
+date_range1_start <- as.Date("2024-01-16")
+date_range1_end <- as.Date("2024-03-27")
+date_range2_start <- as.Date("2024-03-28")
+date_range2_end <- as.Date("2024-04-02")
+
+data_range1 <- data %>%
+  filter(Date >= date_range1_start & Date <= date_range1_end)
+
+data_range2 <- data %>%
+  filter(Date >= date_range2_start & Date <= date_range2_end)
+
+mean_var_range1 <- data_range1 %>%
+  summarise(
+    Mean_Total_ST_min = mean(Total.ST.min, na.rm = TRUE),
+    Variance_Total_ST_min = var(Total.ST.min, na.rm = TRUE),
+    Mean_Social_ST_min = mean(Social.ST.min, na.rm = TRUE),
+    Variance_Social_ST_min = var(Social.ST.min, na.rm = TRUE),
+    Mean_Pickups = mean(Pickups, na.rm = TRUE),
+    Variance_Pickups = var(Pickups, na.rm = TRUE)
+  )
+
+mean_var_range2 <- data_range2 %>%
+  summarise(
+    Mean_Total_ST_min = mean(Total.ST.min, na.rm = TRUE),
+    Variance_Total_ST_min = var(Total.ST.min, na.rm = TRUE),
+    Mean_Social_ST_min = mean(Social.ST.min, na.rm = TRUE),
+    Variance_Social_ST_min = var(Social.ST.min, na.rm = TRUE),
+    Mean_Pickups = mean(Pickups, na.rm = TRUE),
+    Variance_Pickups = var(Pickups, na.rm = TRUE)
+  )
+print(mean_var_range1)
+print(mean_var_range2)
+
+```
+
+```{r}
+library(readxl)
+library(dplyr)
+
+data <- read_excel("/Users/ruoerbei/Documents/BIOSTAT620/BIOSTAT620_project2/completed_data3.xlsx")
+
+data$Date <- as.Date(data$Date)
+
+
+date_range1_start <- as.Date("2024-01-16")
+date_range1_end <- as.Date("2024-03-27")
+date_range2_start <- as.Date("2024-03-28")
+date_range2_end <- as.Date("2024-04-02")
+
+# Filter data for the two date ranges and intervention types using the 'Treatment' column
+data_range1_A <- filter(data, Date >= date_range1_start & Date <= date_range1_end & Treatment == "A")
+data_range1_B <- filter(data, Date >= date_range1_start & Date <= date_range1_end & Treatment == "B")
+data_range2_A <- filter(data, Date >= date_range2_start & Date <= date_range2_end & Treatment == "A")
+data_range2_B <- filter(data, Date >= date_range2_start & Date <= date_range2_end & Treatment == "B")
+
+
+calculate_stats <- function(data) {
+  data %>%
+    summarise(
+      Mean_Total_ST_min = mean(Total.ST.min, na.rm = TRUE),
+      Variance_Total_ST_min = var(Total.ST.min, na.rm = TRUE),
+      Mean_Social_ST_min = mean(Social.ST.min, na.rm = TRUE),
+      Variance_Social_ST_min = var(Social.ST.min, na.rm = TRUE),
+      Mean_Pickups = mean(Pickups, na.rm = TRUE),
+      Variance_Pickups = var(Pickups, na.rm = TRUE)
+    )
+}
+
+stats_range1_A <- calculate_stats(data_range1_A)
+stats_range1_B <- calculate_stats(data_range1_B)
+stats_range2_A <- calculate_stats(data_range2_A)
+stats_range2_B <- calculate_stats(data_range2_B)
+
+print("Stats for Intervention A from 2024-01-16 to 2024-03-27:")
+print(stats_range1_A)
+print("Stats for Intervention B from 2024-01-16 to 2024-03-27:")
+print(stats_range1_B)
+print("Stats for Intervention A from 2024-03-28 to 2024-04-02:")
+print(stats_range2_A)
+print("Stats for Intervention B from 2024-03-28 to 2024-04-02:")
+print(stats_range2_B)
+
+
+
+```
+
+```{r}
+
+compare_means <- function(data_A, data_B) {
+  list(
+    Total_ST_min = t.test(data_A$Total.ST.min, data_B$Total.ST.min, na.action = na.exclude),
+    Social_ST_min = t.test(data_A$Social.ST.min, data_B$Social.ST.min, na.action = na.exclude),
+    Pickups = t.test(data_A$Pickups, data_B$Pickups, na.action = na.exclude)
+    # Uncomment below for Mann-Whitney U test if data is not normally distributed
+    # Total_ST_min = wilcox.test(data_A$Total.ST.min, data_B$Total.ST.min, na.action = na.exclude),
+    # Social_ST_min = wilcox.test(data_A$Social.ST.min, data_B$Social.ST.min, na.action = na.exclude),
+    # Pickups = wilcox.test(data_A$Pickups, data_B$Pickups, na.action = na.exclude)
+  )
+}
+
+p_values_range1 <- compare_means(data_range1_A, data_range1_B)
+p_values_range2 <- compare_means(data_range2_A, data_range2_B)
+
+p_values_range1
+
+p_values_range2
+
+```
